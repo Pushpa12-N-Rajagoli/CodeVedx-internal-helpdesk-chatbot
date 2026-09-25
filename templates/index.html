@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Internal Helpdesk</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #eef2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #6366f1;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .header .icon {
+            font-size: 35px;
+        }
+
+        .header h1 {
+            margin: 6px 0;
+            font-size: 26px;
+        }
+
+        .header p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+
+        .chat {
+            padding: 25px;
+        }
+
+        .welcome {
+            background: #f5f5ff;
+            padding: 14px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            color: #444;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            resize: none;
+            font-size: 15px;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+        }
+
+        button {
+            width: 100%;
+            margin-top: 12px;
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            background: #6366f1;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4f46e5;
+        }
+
+        .response {
+            margin-top: 22px;
+            padding: 18px;
+            background: #f8f9ff;
+            border-radius: 12px;
+            border: 1px solid #e0e3ff;
+        }
+
+        .response h2 {
+            margin-top: 0;
+            color: #4f46e5;
+            font-size: 19px;
+        }
+
+        .answer {
+            background: white;
+            padding: 13px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .info {
+            background: white;
+            padding: 9px 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 12px;
+            color: #888;
+            font-size: 12px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+
+        <div class="icon">🤖</div>
+
+        <h1>AI Internal Helpdesk</h1>
+
+        <p>Ask your workplace questions</p>
+
+    </div>
+
+
+    <!-- Chat Area -->
+    <div class="chat">
+
+        <div class="welcome">
+
+            👋 Hi! I can help you with
+
+            <b>
+                HR, leave, salary, attendance,
+                password and office information.
+            </b>
+
+        </div>
+
+
+        <!-- Question Form -->
+        <form method="POST">
+
+            <textarea
+                name="question"
+                placeholder="Type your question..."
+                required
+            >{{ question }}</textarea>
+
+            <button type="submit">
+                Ask Helpdesk 💬
+            </button>
+
+        </form>
+
+
+        <!-- Chatbot Response -->
+        {% if answer %}
+
+        <div class="response">
+
+            <h2>🤖 Chatbot Response</h2>
+
+
+            <!-- Answer -->
+            <div class="answer">
+
+                <b>Answer:</b><br>
+
+                {{ answer }}
+
+            </div>
+
+
+            <!-- Intent -->
+            <div class="info">
+
+                🎯 <b>Intent:</b>
+
+                {{ intent }}
+
+            </div>
+
+
+            <!-- Confidence -->
+            <div class="info">
+
+                📊 <b>Confidence:</b>
+
+                {{ "%.2f"|format(confidence) }}%
+
+            </div>
+
+
+            <!-- Entities -->
+            <div class="info">
+
+                🔎 <b>Entities:</b>
+
+                {% if entities %}
+
+                    {{ entities | join(", ") }}
+
+                {% else %}
+
+                    No entities detected
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- Footer -->
+    <div class="footer">
+
+        AI Internal Helpdesk • NLP & Machine Learning
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
