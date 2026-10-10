@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin - AI Helpdesk</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4f46e5;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #6366f1;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4f46e5;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>⚙️ Admin Panel</h1>
+
+    <p>Update the Helpdesk FAQ dataset</p>
+
+    <form method="POST">
+
+        <label>Question</label>
+
+        <input
+            type="text"
+            name="question"
+            placeholder="Enter FAQ question"
+            required
+        >
+
+        <label>Intent</label>
+
+        <input
+            type="text"
+            name="intent"
+            placeholder="Example: password_reset"
+            required
+        >
+
+        <label>Answer</label>
+
+        <textarea
+            name="answer"
+            placeholder="Enter the chatbot answer"
+            required
+        ></textarea>
+
+        <button type="submit">
+            ➕ Add FAQ
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
