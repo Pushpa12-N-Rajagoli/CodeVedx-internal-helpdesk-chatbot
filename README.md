@@ -62,18 +62,6 @@ The chatbot follows these steps:
 5. The chatbot searches the FAQ dataset for the corresponding answer.
 6. The answer is displayed in the chat interface.
 
-### Example
-
-```text
-User:
-How can I reset my password?
-
-Chatbot:
-You can reset your password using the password reset
-option on the employee portal. If you still cannot
-access your account, please contact IT support.
-
-
 ## Project structure
 internal_helpdesk_chatbot/
 │
@@ -99,3 +87,18 @@ internal_helpdesk_chatbot/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
+
+
+
+### Example
+
+```text
+User:
+How can I reset my password?
+
+Chatbot:
+You can reset your password using the password reset
+option on the employee portal. If you still cannot
+access your account, please contact IT support.
+
+
